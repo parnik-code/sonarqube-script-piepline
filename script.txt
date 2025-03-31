@@ -1,0 +1,11 @@
+stage('Sonarqube analysis') {
+            steps {
+                sh '''  $SCANNER_HOME/bin/sonar-scanner \            // sonar-scanner name is given in jenkins tools configuration
+                        -Dsonar.host.url=http://15.222.249.40:9000 \   // pust host if you are using same vm for jenkins and sonarqube
+                        -Dsonar.login=squ_c8a953d33928b9aa37c82fa4a414123f525c11b5 \
+                        -Dsonar.projectName=shopping-cart \
+                        -Dsonar.java.binaries=. \
+                        -Dsonar.projectKey=shopping-cart
+                    '''
+            }
+        }
